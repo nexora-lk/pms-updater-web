@@ -1,6 +1,37 @@
-.latest-version {
-  width: 100%;
+.latest-version-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.page-header p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0.5rem 0 0 0;
 }
 
 .version-card {
@@ -14,6 +45,7 @@
   gap: 2rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   color: #1f2937;
+  margin-bottom: 2rem;
 }
 
 .version-content {
@@ -44,7 +76,7 @@
 }
 
 .version-button {
-  padding: 0.625rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   background: #2563eb;
   color: white;
   text-decoration: none;
@@ -80,25 +112,84 @@
   border-radius: 6px;
 }
 
+.setup-info {
+  background-color: #f0f9ff;
+  border-left: 3px solid #2563eb;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.setup-info h3 {
+  margin-top: 0;
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.setup-info ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.setup-info li {
+  margin-bottom: 0.5rem;
+}
+
+.setup-info a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.setup-info a:hover {
+  text-decoration: underline;
+}
+
+.setup-info code {
+  background-color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  color: #dc2626;
+  font-size: 0.85rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .latest-version {
+  .latest-version-page {
     padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
   }
 
   .version-card {
     flex-direction: column;
     text-align: left;
     gap: 1rem;
+    padding: 1.5rem;
   }
 
   .version-button {
     width: 100%;
     text-align: center;
+    padding: 0.75rem 1rem;
   }
 
   .version-name {
     font-size: 1.25rem;
+  }
+
+  .setup-info {
+    padding: 1rem;
+  }
+
+  .setup-info ol {
+    padding-left: 1.25rem;
   }
 }
 

@@ -55,35 +55,40 @@ export default function LatestVersion() {
     loadLatestFile();
   }, [loadLatestFile]);
 
-  if (state.loading) {
-    return (
-      <div className="latest-version">
-        <div className="version-spinner">Loading...</div>
-      </div>
-    );
-  }
-
-  if (state.error || !state.file) {
-    return (
-      <div className="latest-version">
-        <div className="version-error">{state.error}</div>
-      </div>
-    );
-  }
-
   return (
-    <div className="latest-version">
-      <div className="version-card">
-        <div className="version-content">
-          <h2>Latest Version</h2>
-          <p className="version-name">{state.file.name}</p>
-          {state.file.modifiedTime && (
-            <p className="version-date">Updated {formatDate(state.file.modifiedTime)}</p>
-          )}
+    <div className="latest-version-page">
+      <div className="page-wrapper">
+        <div className="page-header">
+          <h1>Latest Version</h1>
+          <p>Download the latest version of PMS Updater</p>
         </div>
-        <a href={getDownloadUrl(state.file.id)} download className="version-button">
-          Download
-        </a>
+
+        {state.loading && (
+          <div className="version-card">
+            <div className="version-spinner">Loading...</div>
+          </div>
+        )}
+
+        {state.error && !state.loading && (
+          <div className="version-card">
+            <div className="version-error">{state.error}</div>
+          </div>
+        )}
+
+        {!state.loading && !state.error && state.file && (
+          <div className="version-card">
+            <div className="version-content">
+              <h2>Latest Release</h2>
+              <p className="version-name">{state.file.name}</p>
+              {state.file.modifiedTime && (
+                <p className="version-date">Updated {formatDate(state.file.modifiedTime)}</p>
+              )}
+            </div>
+            <a href={getDownloadUrl(state.file.id)} download className="version-button">
+              Download
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );
